@@ -1,7 +1,7 @@
-int pin1 = 10;
-int pin2 = 11;
-int pin3 = 6;
-int pin4 = 7;
+int pin1 = 6;
+int pin2 = 7;
+int pin3 = 10;
+int pin4 = 11;
 int pwmL = 12;
 int pwmR = 5;
 
