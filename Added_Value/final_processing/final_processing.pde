@@ -26,8 +26,7 @@ int buttonSize = 50;
 int xPos = 0;
 int yPos = 0; 
 boolean clicked = false; //tells if the user has clicked the mouse;
-boolean run = false;   //tells if the program is running
-boolean reset = true; //tells if the program is reset
+
 int state = STOPPED;
 
 void setup(){
