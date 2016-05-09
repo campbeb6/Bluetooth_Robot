@@ -56,7 +56,7 @@ void draw(){
   drawState();
   if(clicked){
      getOperation(); 
-}
+  }
   
   if(state == RUNNING){
       if(operations.size() == 0){
