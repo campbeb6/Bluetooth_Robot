@@ -8,10 +8,12 @@ void drawButtons(){
   for(int i = 0; i < buttonX.length; i++){
       rect(buttonX[i], buttonY[i], buttonSize, buttonSize);
   }
+
  drawArrow(1, 40, buttonX[0], buttonY[0]); //draw the arrows in the rectangles
  drawArrow(2, 40, buttonX[1], buttonY[1]);
  drawArrow(3, 40, buttonX[2], buttonY[2]);
  drawArrow(4, 40, buttonX[3], buttonY[3]);
+ 
  shape(play,  buttonX[4]+5, buttonY[4]+5, 40, 40); //draw the play, pause, and stop buttons in their rectangles
  shape(pause, buttonX[5]+5, buttonY[5]+5, 40, 40);
  shape(stop,  buttonX[6]+5, buttonY[6]+5, 40, 40); 

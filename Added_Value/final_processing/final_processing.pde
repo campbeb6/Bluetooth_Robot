@@ -19,13 +19,12 @@ final int STOPPED = 1;
 final int RUNNING = 2;
 final int PAUSED = 3;
 
-int[] buttonX = { 250, 250, 150, 350,  1,  1,   1, 549};
-int[] buttonY = {  75, 275, 175, 175,  0, 51, 102,   1};
+int[] buttonX = { 250, 250, 150, 350,  1,  1,   1};
+int[] buttonY = {  75, 275, 175, 175,  0, 51, 102};
 int buttonSize = 50;
 
 int xPos = 0;
 int yPos = 0; 
-boolean menu1 = true;  //tells if the program is in menu1
 boolean clicked = false; //tells if the user has clicked the mouse;
 boolean run = false;   //tells if the program is running
 boolean reset = true; //tells if the program is reset
@@ -33,7 +32,7 @@ int state = STOPPED;
 
 void setup(){
   printArray(Serial.list());
-  //myPort = new Serial(this, "COM15", 9600);
+  myPort = new Serial(this, "COM15", 9600);
   //myPort.write(7);
   textSize(20);
   size(600, 475);
@@ -50,11 +49,12 @@ void setup(){
   noStroke();
   drawBackground();
   drawButtons();
-  //myPort.write('f');
+  drawState();
+  myPort.write('f');
 }
 
-void draw(){
-  drawState();  
+void draw(){  
+  drawState();
   if(clicked){
      getOperation(); 
 }
@@ -87,11 +87,6 @@ void getOperation(){
           } 
         }  
      }
-     if(op == 8 && state == STOPPED && program.size() == 0){
-        menu1 = false;
-        coverButtons();
-        state = RUNNING;
-     } 
      handleOp(op);
      clicked = false;
 }
@@ -118,7 +113,7 @@ void handleOp(int op){
      drawOpList();
    } 
    else if(op == 5){
-     state = RUNNING; 
+     state = RUNNING;
    } 
    else if(op == 6 && state == RUNNING){
      state = PAUSED;
