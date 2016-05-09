@@ -10,7 +10,6 @@ boolean canMove = false;
 volatile int pulses;  // number of pulses
 volatile int pulses2;
 
-unsigned long timeold; 
 // The number of pulses per revolution
 // depends on your index disc!!
 unsigned int pulsesperturn = 20;
@@ -34,13 +33,12 @@ void setup()
    pinMode(encoder_pin2, INPUT);
    
    //Interrupt 0 is digital pin 2, so that is where the IR detector is connected
-   //Triggers on FALLING (change from HIGH to LOW)
+   //Triggers on RISING (change from LOW to HIGH)
    attachInterrupt(3, counter, RISING);
    attachInterrupt(2, counter2, RISING);
    // Initialize
    pulses = 0;
    pulses2 = 0;
-   timeold = 0;
 }
 
 void loop()
